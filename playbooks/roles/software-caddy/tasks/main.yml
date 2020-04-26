@@ -5,7 +5,7 @@
 - name: Install Caddy from GitHub
   become: true
   unachive:
-    scr: {{ release_url }}
+    scr: "{{ release_url }}"
     remote_src: yes
     exclude:
       - LICENSE
@@ -15,7 +15,7 @@
 - name: Ensure Caddy folders is present
   become: true
   file:
-    path: {{ item }}
+    path: "{{ item }}"
     state: directory
   with_items:
     - /etc/caddy
@@ -23,8 +23,8 @@
 
 - name: Setup configuration file
   become: true
-  copy:
-    src: caddyfile
+  template:
+    src: caddyfile.j2
     dest: /etc/caddy/Caddyfile
 
 - name: Install the Caddy systemd service
