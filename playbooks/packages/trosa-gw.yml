@@ -1,7 +1,8 @@
 #
-# Basic server maintenance
+# Basic server deploy
 #
 
 - hosts: trosa-gw
   roles:
     - debian-system-update
+    - software-caddy

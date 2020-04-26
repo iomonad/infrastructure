@@ -10,4 +10,4 @@ all:
   children:
     prod:
       vars:
-        metrics_group: "prod"
+        metrics_group: prod

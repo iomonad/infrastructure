@@ -1,0 +1,42 @@
+#
+# Setup caddy server
+#
+
+- name: Install Caddy from GitHub
+  become: true
+  unachive:
+    scr: {{ release_url }}
+    remote_src: yes
+    exclude:
+      - LICENSE
+      - README.md
+    dest: /usr/local/bin
+
+- name: Ensure Caddy folders is present
+  become: true
+  file:
+    path: {{ item }}
+    state: directory
+  with_items:
+    - /etc/caddy
+    - /srv/public
+
+- name: Setup configuration file
+  become: true
+  copy:
+    src: caddyfile
+    dest: /etc/caddy/Caddyfile
+
+- name: Install the Caddy systemd service
+  become: true
+  copy:
+    src: "caddy.service"
+    dest: "/etc/systemd/system/"
+
+- name: Enable systemd service
+  become: true
+  systemd:
+    daemon_reload: yes
+    name: caddy
+    state: started
+    enabled: yes

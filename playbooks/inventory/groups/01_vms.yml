@@ -10,4 +10,4 @@ all:
   children:
     vms:
       vars:
-        metrics_group: "vms"
+        metrics_group: vms
