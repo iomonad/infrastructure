@@ -10,3 +10,7 @@ all:
     # Ports used by ansible for
     # its SSH connections.
     ansible_port: 22
+
+    # Contact mail, mainly used for
+    # TLS shit
+    devops_contact_email: iomonad@riseup.net
