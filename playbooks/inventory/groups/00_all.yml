@@ -1,0 +1,12 @@
+#   ▄▀▀█▄   ▄▀▀▀▀▄    ▄▀▀▀▀▄
+#  ▐ ▄▀ ▀▄ █    █    █    █
+#    █▄▄▄█ ▐    █    ▐    █
+#   ▄▀   █     █         █
+#  █   ▄▀    ▄▀▄▄▄▄▄▄▀ ▄▀▄▄▄▄▄▄▀
+#  ▐   ▐     █         █
+#          ▐         ▐
+all:
+  vars:
+    # Ports used by ansible for
+    # its SSH connections.
+    ansible_port: 22

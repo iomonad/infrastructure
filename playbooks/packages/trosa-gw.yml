@@ -1,0 +1,7 @@
+#
+# Basic server maintenance
+#
+
+- hosts: trosa-gw
+  roles:
+    - debian-system-update
