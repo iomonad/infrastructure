@@ -1,0 +1,22 @@
+#
+# Cassandra production deployment
+#
+
+version: "3.8"
+
+services:
+  cassandra_master:
+    image: cassandra:4.0
+    volumes:
+      - "/var/lib/cassandra/master:/var/lib/cassandra"
+    ports:
+      - 7000:7000
+      - 9042:9042
+  cassandra_node_1:
+    image: cassandra:4.0
+    volumes:
+      - "/var/lib/cassandra/node1:/var/lib/cassandra"
+    links:
+      - cassandra_master:seed
+    environment:
+      - CASSANDRA_SEEDS=seed
