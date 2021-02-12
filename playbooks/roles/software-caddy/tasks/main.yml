@@ -2,15 +2,15 @@
 # Setup caddy server
 #
 
-- name: Install Caddy from GitHub
-  become: true
-  unachive:
-    scr: "{{ release_url }}"
-    remote_src: yes
-    exclude:
-      - LICENSE
-      - README.md
-    dest: /usr/local/bin
+# - name: Install Caddy from GitHub
+#   become: true
+#   unachive:
+#     scr: "{{ release_url }}"
+#     remote_src: yes
+#     exclude:
+#       - LICENSE
+#       - README.md
+#     dest: /usr/local/bin
 
 - name: Ensure Caddy folders is present
   become: true
@@ -20,6 +20,7 @@
   with_items:
     - /etc/caddy
     - /srv/public
+    - /srv/mnt-root
 
 - name: Setup configuration file
   become: true
